@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Pacifico', cursive;
+}
+
+.container {
+    scroll-snap-type: y mandatory; /* Enable scroll snap for vertical scrolling */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    height: 100vh; /* Full viewport height */
+}
+
+section {
+    scroll-snap-align: start; /* Snap each section to the start of the viewport */
+    min-height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+.welcome {
+    background: #ff4081;
+    text-align: center;
+}
+
+.timeline {
+    background: #4caf50;
+    text-align: center;
+    padding: 40px 10px; /* Adjusted padding for better spacing */
+}
+
+.timeline-container {
+    display: flex; /* Flexbox for horizontal layout */
+    justify-content: space-evenly; /* Evenly distribute items */
+    align-items: flex-start; /* Align items at the top */
+    width: 100%; /* Full width of the screen */
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+    padding: 20px 0; /* Vertical padding */
+}
+
+.timeline-item {
+    position: relative;
+    text-align: center;
+    flex: 1; /* Allow items to grow equally */
+    margin: 0 5px; /* Space between items */
+    min-width: 150px; /* Minimum width for items */
+    background: rgba(255, 255, 255, 0.2); /* Background for items */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Padding inside items */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+.timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -15px; /* Position the line */
+    top: 50%; /* Center the line vertically */
+    width: 30px; /* Line width */
+    height: 2px; /* Line height */
+    background: white; /* Line color */
+    transform: translateY(-50%); /* Center the line vertically */
+}
+
+.timeline-date {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffeb3b;
+    margin-bottom: 10px; /* Space below the date */
+}
+
+.timeline-content {
+    padding: 10px 0;
+}
+
+.timeline-content h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.timeline-content p {
+    font-size: 1em;
+    margin: 0; /* Remove default margin */
+}
+
+
+.songs {
+    background: #2196f3;
+    text-align: center;
+}
+
+.confession {
+    background: #9c27b0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+    background-color: white; 
+    color: black;
+}
+
+p {
+    font-size: 1.2em;
+    text-align: center;
+    max-width: 800px;
+}
+
+iframe {
+    border-radius: 8px;
+}
+
+#confetti {
+    position: fixed; /* Fixed position to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%; /* Cover the entire width */
+    height: 100%; /* Cover the entire height */
+    pointer-events: none; /* Allow clicks to go through */
+    overflow: hidden; /* Hide overflow of confetti pieces */
+    z-index: 1000; /* Ensure it's on top of other elements */
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 10px; /* Width of each confetti piece */
+    height: 10px; /* Height of each confetti piece */
+    animation: fall linear forwards; /* Animation for falling effect */
+}
+
+/* Animation for falling confetti */
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh); /* Move down to the bottom */
+        opacity: 0; /* Fade out */
+    }
+}
+
+/* Styles for the permission overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001; /* Higher than the confetti layer */
+}
+
+.permission-popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.permission-popup h2 {
+    font-size: 1.5em;
+    color: #ff4081;
+    margin-bottom: 20px;
+}
+
+.permission-popup button {
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.permission-popup button:hover {
+    background-color: #e91e63;
+}
